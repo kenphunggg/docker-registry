@@ -2,18 +2,18 @@
 ## What is a **Docker registry**
 Docker registry is a system for storing and distributing Docker images. Users can pull and manage images for container deployment.
 ## Prerequisites
-### Make sure you have installed [Docker](https://docs.docker.com/engine/install/ubuntu/) on your device
-### On your remote machine, update ```/etc/docker/daemon.json``` to allow access to the insecure registry. ```Registry-ip``` is your device's ip address
-```json
-{
-  "insecure-registries": ["<registry-ip>:5000"]
-}
-``` 
-### Restart docker
-```bash
-systemctl restart docker
-```
-## Setting up docker registry
+- Make sure you have installed [Docker](https://docs.docker.com/engine/install/ubuntu/) on your device
+- On your remote machine, update ```/etc/docker/daemon.json``` to allow access to the insecure registry. ```Registry-ip``` is your device's ip address
+    ```json
+    {
+    "insecure-registries": ["<registry-ip>:5000"]
+    }
+    ``` 
+- Restart docker
+    ```bash
+    systemctl restart docker
+    ```
+## Setting up docker registryS
 ### Run the Docker registry container
 ```bash
 $ docker run -d -p 5000:5000 --name registry -e REGISTRY_HTTP_ADDR=0.0.0.0:5000 registry:2
